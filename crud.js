@@ -18,7 +18,7 @@ const addStudent = async(mentid,addobj) =>{
 
 const student = await dbclient.db('management').collection('students').findOne({'name':addobj.students})
 
-console.log(stu)
+// console.log(stu)
 
 if(student.mentor === ''){
     return await dbclient.db('management').collection('mentors').updateMany({_id : new ObjectId (mentid)},{$push:addobj})
