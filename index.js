@@ -1,4 +1,4 @@
-import  express  from "express";
+import  express  from 'express';
 import { addStudent, createMentor, createStudent, prevMentor, studentsList, updateMentor } from "./crud.js";
 
 
