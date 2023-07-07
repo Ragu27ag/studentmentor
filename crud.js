@@ -24,9 +24,11 @@ if(student.mentor === ''){
     return await dbclient.db('management').collection('mentors').updateMany({_id : new ObjectId (mentid)},{$push:addobj})
 
 }
-
+else if(student === undefined) {
+    return ({'msg' : 'student does not exists '})
+}
 else{
-    return ({'msg' : 'mentor exist '})
+    return ({'msg' : 'mentor exists '})
 }
 
 }
