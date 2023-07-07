@@ -18,15 +18,17 @@ const addStudent = async(mentid,addobj) =>{
 
 const student = await dbclient.db('management').collection('students').findOne({'name':addobj.students})
 
-// console.log(stu)
+console.log(student)
 
-if(student.mentor === ''){
+ if(student === null) {
+    return ({'msg' : 'student does not exists '})
+}
+
+else if(student.mentor === ''){
     return await dbclient.db('management').collection('mentors').updateMany({_id : new ObjectId (mentid)},{$push:addobj})
 
 }
-else if(student === undefined) {
-    return ({'msg' : 'student does not exists '})
-}
+
 else{
     return ({'msg' : 'mentor exists '})
 }
