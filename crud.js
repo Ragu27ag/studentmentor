@@ -40,9 +40,9 @@ const studentsList = async(id) => {
 
 const updateMentor = async(mentorid,mentorname) =>{
 
-    const prevmentor = await dbclient.db('management').collection('students').findOne({'_id' : new ObjectId(mentorid)},{'mentor':'1'})
+    const previousmentor = await dbclient.db('management').collection('students').findOne({'_id' : new ObjectId(mentorid)},{'mentor':'1'})
  
-return await dbclient.db('management').collection('students').updateMany({'_id':new ObjectId(mentorid)},{$set:{'previous_mentor':prevmentor.mentor,'mentor':mentorname}})
+return await dbclient.db('management').collection('students').updateMany({'_id':new ObjectId(mentorid)},{$set:{'previous_mentor':previousmentor.mentor,'mentor':mentorname}})
 }
 
 
